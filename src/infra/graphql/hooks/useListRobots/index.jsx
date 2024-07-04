@@ -1,4 +1,4 @@
-// 'use client'
+'use client'
 import { gql, useQuery } from '@apollo/client';
 
 const GET_ROBOTS = gql`
@@ -12,10 +12,12 @@ const GET_ROBOTS = gql`
 }
 `;
 
-const { loading, error, data } = useQuery(GET_ROBOTS);
+const useListRobots = () => {
+  const { loading, error, data } = useQuery(GET_ROBOTS);
+  return { loading, error, data}
+}
+
 
 export {
-  loading,
-  error,
-  data
+  useListRobots
 }
